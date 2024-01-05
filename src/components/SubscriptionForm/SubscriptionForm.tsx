@@ -122,8 +122,11 @@ export const SubscriptionForm = () => {
 
 						<select
 							defaultValue="days"
-							{...register("billingFrequencySelect")}
-							onChange={handleBillingFrequencySelectChange}
+							{...register("billingFrequencySelect", {
+								onChange: (e) => {
+									handleBillingFrequencySelectChange(e);
+								},
+							})}
 							className={styles.select}
 						>
 							<option value="days">Days</option>
