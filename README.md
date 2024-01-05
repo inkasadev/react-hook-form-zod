@@ -2,7 +2,7 @@
 
 Example of a subscription form with React Hook Form and Zod.
 
-![example workflow](https://github.com/inkasadev/frontend-architecture-basic-example/actions/workflows/deploy-page.yml/badge.svg)
+![example workflow](https://github.com/inkasadev/react-hook-form-zod/actions/workflows/deploy-page.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center" >
