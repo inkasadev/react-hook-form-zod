@@ -1,0 +1,88 @@
+.subscriptionForm {
+  width: 32rem;
+  padding: 0.8rem;
+  margin: 0 auto;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+}
+
+.select {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.6rem;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (min-width: 720px) {
+  .subscriptionForm {
+    width: 72rem;
+    padding: 1.6rem;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.6rem;
+  }
+
+  .input {
+    width: 7rem;
+  }
+
+  .select {
+    width: 12rem;
+  }
+
+  .button {
+    grid-column: 1 / 4;
+  }
+}
