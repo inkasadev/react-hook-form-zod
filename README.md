@@ -35,7 +35,7 @@ $ npm run setup
 ```
 
 - By default the application will be started at port 3000.
-- You can also see the application in production [clicking here](https://frontend-architecture-basic-example.surge.sh/).
+- You can also see the application in production [clicking here](https://react-hook-form-zod.surge.sh/).
 
 ## Possible Improvements
 
