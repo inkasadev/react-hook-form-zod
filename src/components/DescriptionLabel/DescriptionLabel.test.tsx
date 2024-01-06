@@ -13,7 +13,7 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 
 	it("should render correct template 'No Trial with never-ending subscription'", () => {
@@ -34,7 +34,7 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 
 	it("should render correct template 'Trial with never ending subscription'", () => {
@@ -56,7 +56,7 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 
 	it("should render correct placeholders template 'Trial with never ending subscription'", () => {
@@ -77,7 +77,7 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 
 	it("should render correct template 'Trial with ending subscription'", () => {
@@ -100,7 +100,7 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 
 	it("should render correct placeholders for template 'Trial with ending subscription' when not all data is provided", () => {
@@ -122,6 +122,6 @@ describe("render correct template in DescriptionLabel component", () => {
 		const templateElement = screen.getByText(template);
 
 		// Assert
-		expect(templateElement).toBeDefined();
+		expect(templateElement).not.toBeNull();
 	});
 });

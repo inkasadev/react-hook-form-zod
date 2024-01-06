@@ -6,7 +6,9 @@ export default defineConfig({
 		setupFiles: "./src/setupTests.ts",
 		environment: "jsdom",
 		coverage: {
+			provider: "istanbul",
 			reporter: ["html", "clover"],
+			exclude: ["src/index.ts", "src/App.tsx", "src/main.tsx"],
 		},
 	},
 });

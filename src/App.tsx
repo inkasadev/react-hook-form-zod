@@ -1,4 +1,3 @@
-/* v8 ignore start */
 import { SubscriptionForm } from "./components/SubscriptionForm";
 import "./App.css";
 
@@ -7,4 +6,3 @@ function App() {
 }
 
 export default App;
-/* v8 ignore end */
