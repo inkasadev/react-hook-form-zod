@@ -65,7 +65,7 @@ export const SubscriptionForm = () => {
 		getFieldState("paymentCycleResult");
 
 	const onSubmit = async (data: any) => {
-		console.log(data);
+		// console.log(data);
 	};
 
 	const handleBillingFrequencySelectChange = (
