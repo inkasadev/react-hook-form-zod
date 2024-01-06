@@ -1,6 +1,6 @@
 # React Hook Form + Zod <!-- omit in toc -->
 
-Example of a subscription form with React Hook Form and Zod.
+Example of a subscription form using React Hook Form and Zod.
 
 ![example workflow](https://github.com/inkasadev/react-hook-form-zod/actions/workflows/deploy-page.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,7 +13,7 @@ Example of a subscription form with React Hook Form and Zod.
 
 - [Technologies Used](#technologies-used)
 - [Local Configuration](#local-configuration)
-- [Possible Improvements](#possible-improvements)
+- [Testing](#testing)
 - [Authors](#authors)
 - [License](#license)
 
@@ -23,6 +23,8 @@ Example of a subscription form with React Hook Form and Zod.
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
+- [Vitest](https://vitest.dev/) for testing
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing
 - [NPM](https://www.npmjs.com/)
 - [Github Actions](https://docs.github.com/en/actions) for CI/CD
 
@@ -37,11 +39,16 @@ $ npm run setup
 - By default the application will be started at port 3000.
 - You can also see the application in production [clicking here](https://react-hook-form-zod.surge.sh/).
 
-## Possible Improvements
+## Testing
 
-A system is never perfect and there is always room for improvement. Here are some points that I would like to enhance if I had more time:
+Use the following command to run it:
 
-- Implement tests.
+```sh
+$ npm run test:coverage
+```
+
+- After the test finishes a folder called COVERAGE will be generated in the project root.
+- Open coverage/index.html file to check coverage visually.
 
 ## Authors
 
