@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
-import styles from "./styles.module.css";
 import { getTemplate } from "../../helpers/getTemplate";
+import styles from "./styles.module.css";
 
 interface IDescriptionLabelProps {
 	data: any;
 }
 
 export const DescriptionLabel = ({ data }: IDescriptionLabelProps) => {
-	const [template, setTemplate] = useState(getTemplate(data));
-	useEffect(() => {
-		setTemplate(getTemplate(data));
-	}, [data]);
-
-	if (!data) return null;
-
-	return <blockquote className={styles.blockquote}>{template}</blockquote>;
+	return (
+		<blockquote className={styles.blockquote}>{getTemplate(data)}</blockquote>
+	);
 };

@@ -1,9 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import cs from "classnames";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { DescriptionLabel } from "../DescriptionLabel/DescriptionLabel";
+import { DescriptionLabel } from "../DescriptionLabel";
 import styles from "./styles.module.css";
 
 const SubscriptionFormSchema = z
@@ -53,14 +52,17 @@ export const SubscriptionForm = () => {
 	});
 	const {
 		register,
-		handleSubmit,
 		watch,
 		setValue,
+		getFieldState,
+		handleSubmit,
 		formState: { errors },
 	} = useForm<SubscriptionFormSchemaData>({
 		resolver: zodResolver(SubscriptionFormSchema),
 	});
 	const watchTrialPeriodSelect = watch("trialPeriodSelect");
+	const { isDirty: isPaymentCycleResultDirty } =
+		getFieldState("paymentCycleResult");
 
 	const onSubmit = async (data: any) => {
 		console.log(data);
@@ -85,7 +87,11 @@ export const SubscriptionForm = () => {
 
 	return (
 		<div className={styles.subscriptionForm}>
-			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}
+				data-testid="form"
+			>
 				<div className={styles.formGroup}>
 					<label htmlFor="initialPrice" className={styles.label}>
 						Initial Price
@@ -98,6 +104,7 @@ export const SubscriptionForm = () => {
 							valueAsNumber: true,
 							min: 0,
 							onChange: (e) => {
+								if (isPaymentCycleResultDirty) return;
 								setValue("paymentCycleResult", Number(e.target.value));
 							},
 						})}
@@ -128,6 +135,7 @@ export const SubscriptionForm = () => {
 								},
 							})}
 							className={styles.select}
+							data-testid="billing-frequency-select"
 						>
 							<option value="days">Days</option>
 							<option value="weeks">Weeks</option>
@@ -177,6 +185,7 @@ export const SubscriptionForm = () => {
 							defaultValue="none"
 							{...register("trialPeriodSelect")}
 							className={styles.select}
+							data-testid="trial-period-select"
 						>
 							<option value="none">None</option>
 							<option value="days">Days</option>
@@ -213,31 +222,33 @@ export const SubscriptionForm = () => {
 							},
 						})}
 						className={styles.select}
+						data-testid="duration-select"
 					>
 						<option value="neverEnds">Never Ends</option>
 						<option value="customize">Customize</option>
 					</select>
 				</div>
-				<div
-					className={cs(styles.formGroup, {
-						[styles.hide]: formExtras.hideBillingCycle,
-					})}
-				>
-					<label htmlFor="billingCycle" className={styles.label}>
-						Billing Cycle
-					</label>
-					<input
-						id="billingCycle"
-						type="number"
-						{...register("billingCycle", {
-							valueAsNumber: true,
-						})}
-						className={styles.input}
-					/>
-					{errors.billingCycle && (
-						<span className={styles.error}>{errors.billingCycle.message}</span>
-					)}
-				</div>
+
+				{!formExtras.hideBillingCycle && (
+					<div className={styles.formGroup}>
+						<label htmlFor="billingCycle" className={styles.label}>
+							Billing Cycle
+						</label>
+						<input
+							id="billingCycle"
+							type="number"
+							{...register("billingCycle", {
+								valueAsNumber: true,
+							})}
+							className={styles.input}
+						/>
+						{errors.billingCycle && (
+							<span className={styles.error}>
+								{errors.billingCycle.message}
+							</span>
+						)}
+					</div>
+				)}
 
 				<button type="submit" className={styles.button}>
 					Submit
