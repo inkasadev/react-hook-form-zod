@@ -14,7 +14,6 @@ export const getTemplate = (data: SubscriptionFormSchemaData) => {
 	let template =
 		"Your customer will be charged $0.00 immediately and then $0.00 every 1 days until they cancel.";
 
-	console.log("initialPrice", initialPrice);
 	initialPrice = isNaN(initialPrice!) ? 0 : initialPrice;
 	paymentCycleResult = isNaN(paymentCycleResult!) ? 0 : paymentCycleResult;
 	billingCycle = isNaN(billingCycle!) ? 0 : billingCycle;
