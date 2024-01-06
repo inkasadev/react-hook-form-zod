@@ -64,6 +64,7 @@ export const SubscriptionForm = () => {
 	const { isDirty: isPaymentCycleResultDirty } =
 		getFieldState("paymentCycleResult");
 
+	// @ts-ignore
 	const onSubmit = async (data: any) => {
 		// console.log(data);
 	};
