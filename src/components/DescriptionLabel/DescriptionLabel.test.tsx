@@ -37,6 +37,28 @@ describe("render correct template in DescriptionLabel component", () => {
 		expect(templateElement).not.toBeNull();
 	});
 
+	it("should render correct template 'No Trial with ending subscription'", () => {
+		// Arrange
+		const template =
+			"Your customer will be charged $200.00 immediately and then $2,000.00 every 1 days, 1 times. The total amount paid will be $2,200.00.";
+		const data = {
+			initialPrice: 200,
+			billingFrequencyNumber: 1,
+			billingFrequencySelect: "days",
+			paymentCycleResult: 2000,
+			trialPeriodSelect: "none",
+			duration: "customize",
+			billingCycle: 1,
+		};
+		render(<DescriptionLabel data={data} />);
+
+		// Act
+		const templateElement = screen.getByText(template);
+
+		// Assert
+		expect(templateElement).not.toBeNull();
+	});
+
 	it("should render correct template 'Trial with never ending subscription'", () => {
 		// Arrange
 		const template =

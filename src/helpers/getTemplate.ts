@@ -24,11 +24,19 @@ export const getTemplate = (data: SubscriptionFormSchemaData) => {
 	});
 	const initialPriceInDollars = USDollar.format(initialPrice!);
 	const paymentCycleInDollars = USDollar.format(paymentCycleResult!);
+	const totalAmountPaid =
+		initialPrice! + paymentCycleResult * billingFrequencyNumber * billingCycle!;
+	const totalAmountPaidInDollars = USDollar.format(totalAmountPaid);
 
 	// No Trial with never-ending subscription
 	if (trialPeriodSelect === "none" && duration === "neverEnds") {
 		template = `Your customer will be charged ${initialPriceInDollars} immediately and then
     ${paymentCycleInDollars} every ${billingFrequencyNumber} ${billingFrequencySelect} until they cancel.`;
+	}
+
+	// No Trial with ending subscription
+	if (trialPeriodSelect === "none" && duration === "customize") {
+		template = `Your customer will be charged ${initialPriceInDollars} immediately and then ${paymentCycleInDollars} every ${billingFrequencyNumber} ${billingFrequencySelect}, ${billingCycle} times. The total amount paid will be ${totalAmountPaidInDollars}.`;
 	}
 
 	// Trial with never ending subscription
@@ -41,11 +49,6 @@ export const getTemplate = (data: SubscriptionFormSchemaData) => {
 
 	// Trial with ending subscription
 	if (trialPeriodSelect !== "none" && duration === "customize") {
-		const totalAmountPaid =
-			initialPrice! +
-			paymentCycleResult * billingFrequencyNumber * billingCycle!;
-		const totalAmountPaidInDollars = USDollar.format(totalAmountPaid);
-
 		template = `Your customer will be charged ${initialPriceInDollars} immediately for their ${
 			isNaN(trialPeriodNumber!) ? "??" : trialPeriodNumber
 		} ${trialPeriodSelect} trial, and then ${paymentCycleInDollars} every ${billingFrequencyNumber} ${billingFrequencySelect}, ${billingCycle} times. The total amount paid will be ${totalAmountPaidInDollars}.`;
